@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class TodoForm extends Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {
-      title: '',
-      responsible: '',
-      description: '',
-      priority: 'low'
+      title: "",
+      responsible: "",
+      description: "",
+      priority: "low",
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,18 +17,18 @@ class TodoForm extends Component {
     e.preventDefault();
     this.props.onAddTodo(this.state);
     this.setState({
-      title: '',
-      responsible: '',
-      description: '',
-      priority: 'low'
+      title: "",
+      responsible: "",
+      description: "",
+      priority: "low",
     });
   }
 
   handleInputChange(e) {
-    const {value, name} = e.target;
+    const { value, name } = e.target;
     console.log(value, name);
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
@@ -43,8 +43,8 @@ class TodoForm extends Component {
               className="form-control"
               value={this.state.title}
               onChange={this.handleInputChange}
-              placeholder="Title"
-              />
+              placeholder="Título"
+            />
           </div>
           <div className="form-group">
             <input
@@ -53,8 +53,8 @@ class TodoForm extends Component {
               className="form-control"
               value={this.state.responsible}
               onChange={this.handleInputChange}
-              placeholder="Responsible"
-              />
+              placeholder="Responsable"
+            />
           </div>
           <div className="form-group">
             <input
@@ -63,29 +63,28 @@ class TodoForm extends Component {
               className="form-control"
               value={this.state.description}
               onChange={this.handleInputChange}
-              placeholder="Description"
-              />
+              placeholder="Descripción"
+            />
           </div>
           <div className="form-group">
             <select
-                name="priority"
-                className="form-control"
-                value={this.state.priority}
-                onChange={this.handleInputChange}
-              >
-              <option>low</option>
-              <option>medium</option>
-              <option>high</option>
+              name="priority"
+              className="form-control"
+              value={this.state.priority}
+              onChange={this.handleInputChange}
+            >
+              <option>Baja</option>
+              <option>Media</option>
+              <option>Alta</option>
             </select>
           </div>
           <button type="submit" className="btn btn-primary">
-            Save
+            Guardar
           </button>
         </form>
       </div>
-    )
+    );
   }
-
 }
 
 export default TodoForm;
